@@ -1,5 +1,6 @@
 # Todo
-- [ ] Add a button to submit apt to testnet
+- [x] Add a button to submit apt to testnet
 - [ ] Add input for apt amount
 - [ ] Add more informative text
-- [ ] Add github repository link
+- [x] Add github repository link
+- [ ] Fix the error when send to the testnet
