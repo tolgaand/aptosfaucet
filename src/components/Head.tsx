@@ -3,14 +3,16 @@ import _Head from "next/head";
 export const Head = () => {
   return (
     <_Head>
-      <title>Aptos Faucet</title>
+      <title>
+        AptosFaucet: Get Free Balance on the Aptos Network in Testnet and Devnet
+      </title>
       <meta
         name="description"
-        content="Send apt to a wallet quickly and securely on the devnet or testnet network."
+        content="AptosFaucet provides free balance on the Aptos network in testnet and devnet. We offer balance to allow our users to test and develop on the Aptos network more."
       />
       <meta
         name="keywords"
-        content="Aptos, Apt, Faucet, Aptos faucet, aptos faucet devnet, aptos faucet testnet"
+        content="Aptos, faucet, testnet, devnet, balance, free, Aptos network"
       />
       <link rel="icon" href="/favicon.ico" />
     </_Head>
