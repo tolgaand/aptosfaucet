@@ -6,7 +6,7 @@ export const DefaultContainer = () => {
   return (
     <>
       <Head />
-      <Container>
+      <Container maxW="container.lg">
         <AptFaucet />
       </Container>
     </>
