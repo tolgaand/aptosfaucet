@@ -102,7 +102,7 @@ export const AptFaucet = () => {
           fontWeight="900"
         >
           With your 💰 donations, this 🔧 tool becomes even stronger. You can
-          copy me 💰 wallet address by clicking 🔗 here.
+          copy me 💰 wallet address by clicking 🔗 here. 🇹🇷
         </Text>
         <a
           href="https://github.com/tolgaand/aptosfaucet"
