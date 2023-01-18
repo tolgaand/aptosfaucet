@@ -17,7 +17,8 @@
     "next": "12.3.1",
     "nextjs-google-analytics": "^2.2.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-query": "^3.39.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
