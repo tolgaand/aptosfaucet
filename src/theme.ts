@@ -21,6 +21,9 @@ const theme = extendTheme({
       },
     }),
   },
+  fonts: {
+    body: `Rajdhani, sans-serif`,
+  },
 });
 
 export default theme;
