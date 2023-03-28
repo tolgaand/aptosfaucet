@@ -1,4 +1,5 @@
 import { Button } from "@chakra-ui/react";
+import { useSaveLog } from "hooks/useLogs";
 import { useSendAptos } from "hooks/useSendAptos";
 import { PropsWithChildren } from "react";
 
@@ -11,9 +12,11 @@ export const SendButton = (props: PropsWithChildren<SendButtonProps>) => {
   const { walletAddress, type } = props;
 
   const sendApt = useSendAptos(walletAddress, type);
+  const { mutate: handleLog } = useSaveLog();
 
-  const onSubmit = () => {
-    sendApt.mutate();
+  const onSubmit = async () => {
+    await sendApt.mutateAsync();
+    handleLog(walletAddress);
   };
 
   return (

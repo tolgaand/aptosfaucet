@@ -80,9 +80,19 @@ export const AptFaucet = () => {
             Send Testnet
           </SendButton>
         </Stack>
+        <a
+          href="https://github.com/tolgaand/aptosfaucet"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            margin: "auto",
+          }}
+        >
+          <GithubIcon />
+        </a>
       </Stack>
 
-      <Flex
+      {/* <Flex
         position="absolute"
         marginTop="10px"
         bottom="20px"
@@ -111,7 +121,7 @@ export const AptFaucet = () => {
         >
           <GithubIcon />
         </a>
-      </Flex>
+      </Flex> */}
     </Box>
   );
 };
