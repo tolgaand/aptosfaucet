@@ -1,4 +1,4 @@
-import { Log } from "@prisma/client";
+import { Log } from "components/History";
 import { prisma } from "lib/prisma";
 import { sanitizeAddress } from "lib/sanitizeAddress";
 import type { NextApiRequest, NextApiResponse } from "next";

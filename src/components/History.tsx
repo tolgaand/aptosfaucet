@@ -16,11 +16,11 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 dayjs.extend(relativeTime);
 
-type Log = {
+export type Log = {
   id: string;
   walletAddress: string;
   count: number;
-  lastActionAt: string;
+  lastActionAt: Date;
 };
 
 export const TransferHistory = () => {
