@@ -14,8 +14,14 @@ import { useLogs } from "hooks/useLogs";
 
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
-import { Log } from "@prisma/client";
 dayjs.extend(relativeTime);
+
+type Log = {
+  id: string;
+  walletAddress: string;
+  count: number;
+  lastActionAt: string;
+};
 
 export const TransferHistory = () => {
   const { data, isLoading } = useLogs();
@@ -49,7 +55,7 @@ export const TransferHistory = () => {
             {data?.logs?.map((transfer: Log) => (
               <Tr key={transfer.id}>
                 <Td>{transfer.walletAddress}</Td>
-                <Td>{transfer?.count}</Td>
+                <Td>{transfer.count}</Td>
                 <Td>{dayjs(transfer.lastActionAt).fromNow()}</Td>
               </Tr>
             ))}
