@@ -8,6 +8,7 @@ export default async function handler(
   res: NextApiResponse<{
     ok: boolean;
     logs?: Log[];
+    todaysLogCount?: number;
   }>
 ) {
   if (req.method !== "GET") return res.status(405).json({ ok: false });
@@ -23,5 +24,17 @@ export default async function handler(
     walletAddress: sanitizeAddress(log.walletAddress),
   }));
 
-  res.status(200).json({ ok: true, logs: modifiedLogs });
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+  const todaysLogCount = modifiedLogs.filter((log) => {
+    const logDate = new Date(log.createdAt);
+    return (
+      logDate.getFullYear() === today.getFullYear() &&
+      logDate.getMonth() === today.getMonth() &&
+      logDate.getDate() === today.getDate()
+    );
+  }).length;
+
+  res.status(200).json({ ok: true, logs: modifiedLogs, todaysLogCount });
 }

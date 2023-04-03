@@ -23,7 +23,7 @@ type Transfer = {
 };
 
 export const TransferHistory = () => {
-  const { data: history, isLoading } = useLogs();
+  const { data, isLoading } = useLogs();
 
   return (
     <Box padding="20px" maxHeight="100vh" overflow="auto">
@@ -32,9 +32,13 @@ export const TransferHistory = () => {
       </Heading>
       <Text fontSize="20px">
         <Text as="span" fontWeight="bold">
-          {history?.length || 0}
+          {data?.logs?.length || 0}
         </Text>
-        &nbsp;txs
+        &nbsp;total, &nbsp;
+        <Text as="span" fontWeight="bold">
+          {data?.todaysLogCount || 0}
+        </Text>
+        &nbsp;today
       </Text>
       {isLoading && <Spinner />}
       {!isLoading && (
@@ -46,7 +50,7 @@ export const TransferHistory = () => {
             </Tr>
           </Thead>
           <Tbody>
-            {history?.map((transfer: Transfer) => (
+            {data?.logs?.map((transfer: Transfer) => (
               <Tr key={transfer.id}>
                 <Td>{transfer.walletAddress}</Td>
                 <Td>{dayjs(transfer.createdAt).fromNow()}</Td>

@@ -19,6 +19,6 @@ export const useSaveLog = () => {
 export const useLogs = () => {
   return useQuery("logs", async () => {
     const { data } = await axios.get("/api/logs");
-    return data.logs;
+    return data;
   });
 };
