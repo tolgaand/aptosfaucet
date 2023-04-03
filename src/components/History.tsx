@@ -49,7 +49,7 @@ export const TransferHistory = () => {
             {data?.logs?.map((transfer: Log) => (
               <Tr key={transfer.id}>
                 <Td>{transfer.walletAddress}</Td>
-                <Td>{transfer.count}</Td>
+                <Td>{transfer?.count}</Td>
                 <Td>{dayjs(transfer.lastActionAt).fromNow()}</Td>
               </Tr>
             ))}
