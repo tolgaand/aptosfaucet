@@ -5,6 +5,7 @@ import {
   Table,
   Tbody,
   Td,
+  Text,
   Th,
   Thead,
   Tr,
@@ -29,6 +30,12 @@ export const TransferHistory = () => {
       <Heading size="lg" marginBottom="20px">
         Transfer History
       </Heading>
+      <Text fontSize="20px">
+        <Text as="span" fontWeight="bold">
+          {history?.length || 0}
+        </Text>
+        &nbsp;txs
+      </Text>
       {isLoading && <Spinner />}
       {!isLoading && (
         <Table variant="simple">
