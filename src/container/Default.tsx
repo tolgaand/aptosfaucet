@@ -16,7 +16,7 @@ export const DefaultContainer = () => {
           alignItems="center"
         >
           <AptFaucet />
-          <TransferHistory />
+          {/* <TransferHistory /> */}
         </Flex>
       </Container>
     </>
