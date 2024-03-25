@@ -1,6 +1,7 @@
 import {
   Box,
   Flex,
+  Highlight,
   Image,
   Input,
   NumberDecrementStepper,
@@ -16,10 +17,13 @@ import { useState } from "react";
 import { GithubIcon } from "./GithubIcon";
 import { sanitizeAddress } from "lib/sanitizeAddress";
 import { SendButton } from "./SendButton";
+import { useLogCount } from "hooks/useLogs";
 
 export const AptFaucet = () => {
   const [walletAddress, setWalletAddress] = useState("");
   const [amount, setAmount] = useState("1");
+
+  const { data, isLoading } = useLogCount();
 
   const toast = useToast();
 
@@ -55,6 +59,24 @@ export const AptFaucet = () => {
         </Text>
         &nbsp; It is a testnet or devnet faucet for the Aptos blockchain.
       </Text>
+      <Text mt={2}>
+        <Highlight
+          query={(data?.logCount as number)?.toString() || "loading"}
+          styles={{
+            mt: "2",
+            px: "1",
+            py: "1",
+            bg: "#F17844",
+            fontWeight: "bold",
+            color: "white",
+            roundedBottomRight: "md",
+            roundedTopLeft: "md",
+          }}
+        >
+          {`Transaction count: ${data?.logCount || "loading"} `}
+        </Highlight>
+      </Text>
+
       <Stack marginTop="20px" maxWidth="2xl" width="100%">
         <Input
           variant="filled"
