@@ -10,7 +10,7 @@ export const useSaveLog = () => {
     },
     {
       onSuccess: () => {
-        queryClient.invalidateQueries("logs");
+        queryClient.invalidateQueries("logCount");
       },
     }
   );
@@ -19,6 +19,13 @@ export const useSaveLog = () => {
 export const useLogs = () => {
   return useQuery("logs", async () => {
     const { data } = await axios.get("/api/logs");
+    return data;
+  });
+};
+
+export const useLogCount = () => {
+  return useQuery("logCount", async () => {
+    const { data } = await axios.get("/api/get-log-count");
     return data;
   });
 };
