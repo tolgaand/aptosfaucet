@@ -1,23 +1,10 @@
-import {
-  Box,
-  Flex,
-  Highlight,
-  Image,
-  Input,
-  NumberDecrementStepper,
-  NumberIncrementStepper,
-  NumberInput,
-  NumberInputField,
-  NumberInputStepper,
-  Stack,
-  Text,
-  useToast,
-} from "@chakra-ui/react";
+import { Box, Highlight, Image, Input, Stack, Text } from "@chakra-ui/react";
 import { useState } from "react";
-import { GithubIcon } from "./GithubIcon";
-import { sanitizeAddress } from "lib/sanitizeAddress";
-import { SendButton } from "./SendButton";
-import { useLogCount } from "hooks/useLogs";
+import { GithubIcon } from "./github-icon";
+import { SendButton } from "./send-button";
+import { useLogCount } from "hooks/use-logs";
+
+import { NumberInputField, NumberInputRoot } from "./ui/number-input";
 
 export const AptFaucet = () => {
   const [walletAddress, setWalletAddress] = useState("");
@@ -25,17 +12,17 @@ export const AptFaucet = () => {
 
   const { data, isLoading } = useLogCount();
 
-  const toast = useToast();
+  // const toast = useToast();
 
-  const copyToClipboard = (val: string) => {
-    navigator.clipboard.writeText(val);
-    toast({
-      title: "Copied",
-      description: `${sanitizeAddress(val)} copied to clipboard`,
-      status: "success",
-      duration: 9000,
-    });
-  };
+  // const copyToClipboard = (val: string) => {
+  //   navigator.clipboard.writeText(val);
+  //   toast({
+  //     title: "Copied",
+  //     description: `${sanitizeAddress(val)} copied to clipboard`,
+  //     status: "success",
+  //     duration: 9000,
+  //   });
+  // };
 
   return (
     <Box
@@ -79,7 +66,7 @@ export const AptFaucet = () => {
 
       <Stack marginTop="20px" maxWidth="2xl" width="100%">
         <Input
-          variant="filled"
+          variant="subtle"
           placeholder="0xc602a71f7067667cd80ac1d7913ee1ff4e3197e6a0a17c5810eb604a6531656a"
           value={walletAddress}
           onChange={(e) => setWalletAddress(e.target.value)}
@@ -88,16 +75,15 @@ export const AptFaucet = () => {
           <SendButton type="devnet" walletAddress={walletAddress}>
             Send devnet
           </SendButton>
-          <NumberInput maxW={20} defaultValue={1} min={1}>
-            <NumberInputField
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
-            />
-            <NumberInputStepper>
-              <NumberIncrementStepper />
-              <NumberDecrementStepper />
-            </NumberInputStepper>
-          </NumberInput>
+          <NumberInputRoot
+            value={amount}
+            onValueChange={(e: any) => setAmount(e.value)}
+            maxW={20}
+            defaultValue={1}
+            min={1}
+          >
+            <NumberInputField />
+          </NumberInputRoot>
           <SendButton type="testnet" walletAddress={walletAddress}>
             Send Testnet
           </SendButton>

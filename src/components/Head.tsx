@@ -6,10 +6,7 @@ export const Head = () => {
       <title>
         AptosFaucet: Get Free Balance on the Aptos Network in Testnet and Devnet
       </title>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet"
-      />
+
       <meta
         name="description"
         content="AptosFaucet provides free balance on the Aptos network in testnet and devnet. We offer balance to allow our users to test and develop on the Aptos network more."

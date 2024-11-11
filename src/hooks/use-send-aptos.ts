@@ -1,4 +1,5 @@
-import { useToast } from "@chakra-ui/react";
+import { toaster } from "../components/ui/toaster";
+
 import { FaucetClient } from "aptos";
 import { sanitizeAddress } from "lib/sanitizeAddress";
 import { useMutation } from "react-query";
@@ -24,7 +25,7 @@ export const useSendAptos = (
   walletAddress: string,
   network: "devnet" | "testnet"
 ) => {
-  const toast = useToast();
+  // const toast = useToast();
 
   return useMutation(
     ["sendAptos", walletAddress, network],
@@ -38,18 +39,18 @@ export const useSendAptos = (
     },
     {
       onSuccess: () => {
-        toast({
+        toaster.create({
           title: "Success",
           description: `APT sent to ${sanitizeAddress(walletAddress)}`,
-          status: "success",
+          type: "success",
           duration: 9000,
         });
       },
       onError: (error: any) => {
-        toast({
+        toaster.create({
           title: "Error",
           description: JSON.stringify(error.message, null, 2),
-          status: "error",
+          type: "error",
           duration: 9000,
         });
       },

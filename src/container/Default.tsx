@@ -1,7 +1,6 @@
 import { Container, Flex } from "@chakra-ui/react";
-import { TransferHistory } from "components/History";
-import { AptFaucet } from "../components/AptFaucet";
-import { Head } from "../components/Head";
+import { AptFaucet } from "../components/apt-faucet";
+import { Head } from "../components/head";
 
 export const DefaultContainer = () => {
   return (

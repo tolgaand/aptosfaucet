@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-}
+  experimental: {
+    optimizePackageImports: ["@chakra-ui/react"],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
