@@ -4,17 +4,18 @@ import { PropsWithChildren } from "react";
 import { Button } from "./ui/button";
 import { useDisclosure } from "@chakra-ui/react";
 import { ThanksDialog } from "./thanks-dialog";
+import { Network } from "@aptos-labs/ts-sdk";
 
 type SendButtonProps = {
   walletAddress: string;
-  type: "devnet" | "testnet";
+  network: Network;
 };
 
 export const SendButton = (props: PropsWithChildren<SendButtonProps>) => {
-  const { walletAddress, type } = props;
+  const { walletAddress, network } = props;
   const { onOpen, onClose, open } = useDisclosure();
 
-  const sendApt = useSendAptos(walletAddress, type);
+  const sendApt = useSendAptos(walletAddress, network);
   const { mutate: handleLog } = useSaveLog();
 
   const onSubmit = async () => {

@@ -5,6 +5,7 @@ import { SendButton } from "./send-button";
 import { useLogCount } from "hooks/use-logs";
 
 import { NumberInputField, NumberInputRoot } from "./ui/number-input";
+import { Network } from "@aptos-labs/ts-sdk";
 
 export const AptFaucet = () => {
   const [walletAddress, setWalletAddress] = useState("");
@@ -72,7 +73,7 @@ export const AptFaucet = () => {
           onChange={(e) => setWalletAddress(e.target.value)}
         />
         <Stack direction="row">
-          <SendButton type="devnet" walletAddress={walletAddress}>
+          <SendButton network={Network.DEVNET} walletAddress={walletAddress}>
             Send devnet
           </SendButton>
           <NumberInputRoot
@@ -84,7 +85,7 @@ export const AptFaucet = () => {
           >
             <NumberInputField />
           </NumberInputRoot>
-          <SendButton type="testnet" walletAddress={walletAddress}>
+          <SendButton network={Network.TESTNET} walletAddress={walletAddress}>
             Send Testnet
           </SendButton>
         </Stack>
